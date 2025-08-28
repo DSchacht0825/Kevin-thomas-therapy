@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import MobileMenu from './MobileMenu';
+import Home from './pages/Home';
+import About from './pages/About';
+import Approach from './pages/Approach';
+import Expectations from './pages/Expectations';
+import Contact from './pages/Contact';
 
-function App() {
+// Layout component that wraps all pages
+function Layout() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ minHeight: '100vh', backgroundColor: '#f5f3f0' }}>
+      <MobileMenu />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
+}
+
+// Create router configuration
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "approach", element: <Approach /> },
+      { path: "expectations", element: <Expectations /> },
+      { path: "contact", element: <Contact /> }
+    ]
+  }
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
 }
 
 export default App;
