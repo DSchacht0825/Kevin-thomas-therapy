@@ -180,28 +180,6 @@ const Contact: React.FC = () => {
           lineHeight: '1.8',
           animation: 'fadeInUp 2s ease-out'
         }}>
-          <div style={{ 
-            marginBottom: '3rem',
-            paddingBottom: '2rem',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.2)'
-          }}>
-            <h3 style={{ 
-              fontFamily: 'Playfair Display, serif',
-              color: '#ffffff', 
-              marginBottom: '1rem',
-              fontSize: '1.5rem',
-              fontWeight: '500',
-              textShadow: '1px 1px 6px rgba(0,0,0,0.3)'
-            }}>How do I know if therapy is right for me?</h3>
-            <p style={{ 
-              color: '#d1e7f0', 
-              fontSize: '1.1rem',
-              fontWeight: '300'
-            }}>
-              If you're feeling stuck, overwhelmed, or seeking greater clarity and peace in your life, therapy can be a valuable resource. 
-              The screening form will help determine if individual therapy is the right fit for your current needs.
-            </p>
-          </div>
 
           <div style={{ 
             marginBottom: '3rem',
@@ -249,24 +227,6 @@ const Contact: React.FC = () => {
             </p>
           </div>
 
-          <div>
-            <h3 style={{ 
-              fontFamily: 'Playfair Display, serif',
-              color: '#ffffff', 
-              marginBottom: '1rem',
-              fontSize: '1.5rem',
-              fontWeight: '500',
-              textShadow: '1px 1px 6px rgba(0,0,0,0.3)'
-            }}>Do you integrate faith and spirituality?</h3>
-            <p style={{ 
-              color: '#d1e7f0', 
-              fontSize: '1.1rem',
-              fontWeight: '300'
-            }}>
-              Yes, when appropriate and desired. Whether faith is central to your life or you're exploring questions of meaning and purpose, 
-              your beliefs and values are respected and can be integrated into the work together.
-            </p>
-          </div>
         </div>
       </section>
       </div>
