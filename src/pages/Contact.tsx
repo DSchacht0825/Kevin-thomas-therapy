@@ -150,9 +150,9 @@ const Contact: React.FC = () => {
           fontWeight: '300',
           lineHeight: '1.6'
         }}>
-          In-person and online sessions available<br/>
+          In-person sessions in a comfortable, private setting<br/>
           Private pay practice with superbills for insurance reimbursement<br/>
-          Evening appointments available
+          Flexible scheduling including evening appointments
         </p>
       </section>
 
