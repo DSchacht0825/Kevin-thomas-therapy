@@ -29,14 +29,6 @@ const Home: React.FC = () => {
           fontWeight: '300',
           letterSpacing: '1px'
         }}>Therapy for Adults Seeking Clarity, Peace, and Lasting Change</h2>
-        <p className="hero-subtext" style={{
-          color: '#e8f4f8',
-          textShadow: '1px 1px 4px rgba(0,0,0,0.3)',
-          fontWeight: '300'
-        }}>
-          You may look successful on the outside, but inside you feel stuck—emotionally, relationally, or spiritually. 
-          Whether you're wrestling with anxiety, burnout, or questions of identity and purpose, you don't have to navigate it alone.
-        </p>
         <Link to="/contact" className="cta-button">
           Start Your Journey
         </Link>
