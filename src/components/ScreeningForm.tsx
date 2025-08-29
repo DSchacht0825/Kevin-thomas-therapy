@@ -345,7 +345,7 @@ const ScreeningForm: React.FC = () => {
           </div>
         </div>
 
-        <button type="submit" className="cta-button submit-button">
+        <button type="button" className="cta-button submit-button">
           Submit Screening
         </button>
       </form>
