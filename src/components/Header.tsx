@@ -30,8 +30,19 @@ const Header: React.FC = () => {
             </ul>
           </nav>
 
-          {/* Center Title */}
-          <div className="header-center"></div>
+          {/* Center Logo */}
+          <div className="header-center">
+            <img 
+              src="/images/lotus.png" 
+              alt="Lotus Logo" 
+              style={{
+                height: '70px',
+                width: 'auto',
+                filter: 'brightness(0) invert(1)',
+                opacity: 0.9
+              }}
+            />
+          </div>
 
           {/* Desktop Navigation - Right */}
           <nav className="nav-right desktop-nav">
