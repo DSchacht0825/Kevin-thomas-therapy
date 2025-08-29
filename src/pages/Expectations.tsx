@@ -238,8 +238,8 @@ const Expectations: React.FC = () => {
             fontWeight: '300',
             lineHeight: '1.8'
           }}>
-            Sessions are typically 50 minutes, meeting weekly and adjusted based on your needs.<br/>
-            Both in-person and secure video sessions are available for your convenience.
+            Sessions are 60 minutes, meeting weekly and adjusted based on your needs.<br/>
+            All sessions are conducted in-person in a comfortable, private setting.
           </p>
         </div>
 
