@@ -4,9 +4,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Home: React.FC = () => {
   const overviewRef = useScrollAnimation('animate-fade-up', { once: true });
-  const exploreRef = useScrollAnimation('animate-slide-left', { once: true });
-  const understandRef = useScrollAnimation('animate-fade-scale', { once: true });
-  const connectRef = useScrollAnimation('animate-slide-right', { once: true });
 
   return (
     <main 
@@ -100,122 +97,6 @@ const Home: React.FC = () => {
             Therapy is a collaborative journey toward understanding yourself more deeply, healing from past wounds, 
             and developing the tools you need to create lasting positive change in your life.
           </p>
-          
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '4rem',
-            marginTop: '4rem',
-            padding: '0 1rem'
-          }}>
-            <div ref={exploreRef} className="animate-on-scroll" style={{ textAlign: 'left' }}>
-              <h3 style={{ 
-                fontFamily: 'Playfair Display, serif',
-                color: '#ffffff', 
-                fontSize: '1.8rem',
-                marginBottom: '1rem',
-                textShadow: '1px 1px 6px rgba(0,0,0,0.3)'
-              }}>Explore</h3>
-              <p style={{ 
-                color: '#d1e7f0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7',
-                marginBottom: '1.5rem'
-              }}>
-                Discover what you can expect from therapy and how it can support your unique journey through life's challenges.
-              </p>
-              <Link to="/expectations" style={{
-                color: '#4a9bd4',
-                fontSize: '1.05rem',
-                textDecoration: 'none',
-                borderBottom: '2px solid transparent',
-                transition: 'all 0.3s',
-                fontWeight: '500'
-              }} 
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderBottom = '2px solid #4a9bd4';
-                e.currentTarget.style.color = '#6bb3e0';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderBottom = '2px solid transparent';
-                e.currentTarget.style.color = '#4a9bd4';
-              }}>
-                Learn what to expect →
-              </Link>
-            </div>
-            
-            <div ref={understandRef} className="animate-on-scroll" style={{ textAlign: 'left' }}>
-              <h3 style={{ 
-                fontFamily: 'Playfair Display, serif',
-                color: '#ffffff', 
-                fontSize: '1.8rem',
-                marginBottom: '1rem',
-                textShadow: '1px 1px 6px rgba(0,0,0,0.3)'
-              }}>Understand</h3>
-              <p style={{ 
-                color: '#d1e7f0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7',
-                marginBottom: '1.5rem'
-              }}>
-                Learn about the therapeutic approach and evidence-based methods used to support your personal growth.
-              </p>
-              <Link to="/approach" style={{
-                color: '#4a9bd4',
-                fontSize: '1.05rem',
-                textDecoration: 'none',
-                borderBottom: '2px solid transparent',
-                transition: 'all 0.3s',
-                fontWeight: '500'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderBottom = '2px solid #4a9bd4';
-                e.currentTarget.style.color = '#6bb3e0';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderBottom = '2px solid transparent';
-                e.currentTarget.style.color = '#4a9bd4';
-              }}>
-                Explore the approach →
-              </Link>
-            </div>
-            
-            <div ref={connectRef} className="animate-on-scroll" style={{ textAlign: 'left' }}>
-              <h3 style={{ 
-                fontFamily: 'Playfair Display, serif',
-                color: '#ffffff', 
-                fontSize: '1.8rem',
-                marginBottom: '1rem',
-                textShadow: '1px 1px 6px rgba(0,0,0,0.3)'
-              }}>Connect</h3>
-              <p style={{ 
-                color: '#d1e7f0',
-                fontSize: '1.1rem',
-                lineHeight: '1.7',
-                marginBottom: '1.5rem'
-              }}>
-                Take the first step toward healing with a confidential consultation tailored to your needs.
-              </p>
-              <Link to="/contact" style={{
-                color: '#4a9bd4',
-                fontSize: '1.05rem',
-                textDecoration: 'none',
-                borderBottom: '2px solid transparent',
-                transition: 'all 0.3s',
-                fontWeight: '500'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderBottom = '2px solid #4a9bd4';
-                e.currentTarget.style.color = '#6bb3e0';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderBottom = '2px solid transparent';
-                e.currentTarget.style.color = '#4a9bd4';
-              }}>
-                Begin your journey →
-              </Link>
-            </div>
-          </div>
         </section>
       </div>
     </main>
