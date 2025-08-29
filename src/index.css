@@ -398,6 +398,26 @@ body::after {
   }
 }
 
+/* Disable hover effects for submit button */
+.submit-button:hover {
+  background: linear-gradient(145deg, #6b8e9e 0%, #8ba399 100%) !important;
+  transform: none !important;
+  box-shadow: 0 10px 30px rgba(107, 142, 158, 0.3), 0 4px 10px rgba(107, 142, 158, 0.2) !important;
+  animation: none !important;
+  cursor: default !important;
+}
+
+.submit-button:hover::before {
+  left: -100% !important;
+}
+
+.submit-button:hover::after {
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  animation: none !important;
+}
+
 @keyframes fadeInUp {
   0% { 
     opacity: 0;
