@@ -12,7 +12,7 @@ const Expectations: React.FC = () => {
     <main 
       className="parallax-bg"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 73, 94, 0.88) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000')`,
+        backgroundImage: `linear-gradient(135deg, rgba(44, 62, 80, 0.45) 0%, rgba(52, 73, 94, 0.44) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000')`,
         minHeight: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',

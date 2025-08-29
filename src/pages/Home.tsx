@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <main 
       className="parallax-bg"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(26, 41, 56, 0.85) 0%, rgba(44, 62, 80, 0.9) 100%), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2000')`,
+        backgroundImage: `linear-gradient(135deg, rgba(26, 41, 56, 0.425) 0%, rgba(44, 62, 80, 0.45) 100%), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2000')`,
         minHeight: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
