@@ -23,8 +23,8 @@ const Header: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className={isActive('/about') ? 'active' : ''}>
-                  About
+                <Link to="/approach" className={isActive('/approach') ? 'active' : ''}>
+                  My Approach
                 </Link>
               </li>
             </ul>
@@ -36,11 +36,6 @@ const Header: React.FC = () => {
           {/* Desktop Navigation - Right */}
           <nav className="nav-right desktop-nav">
             <ul>
-              <li>
-                <Link to="/approach" className={isActive('/approach') ? 'active' : ''}>
-                  My Approach
-                </Link>
-              </li>
               <li>
                 <Link to="/expectations" className={isActive('/expectations') ? 'active' : ''}>
                   What to Expect

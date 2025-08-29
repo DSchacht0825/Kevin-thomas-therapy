@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MobileMenu from './MobileMenu';
 import Home from './pages/Home';
-import About from './pages/About';
 import Approach from './pages/Approach';
 import Expectations from './pages/Expectations';
 import Contact from './pages/Contact';
@@ -28,7 +27,6 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: "about", element: <About /> },
       { path: "approach", element: <Approach /> },
       { path: "expectations", element: <Expectations /> },
       { path: "contact", element: <Contact /> }

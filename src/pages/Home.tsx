@@ -58,9 +58,6 @@ const Home: React.FC = () => {
             Warm. Collaborative. Practical. Together, we'll explore what holds you back, strengthen your sense of self, and move toward clarity, peace, and purpose.
           </p>
           
-          <Link to="/about" className="learn-more-link">
-            Learn More About Me →
-          </Link>
         </div>
       </section>
 

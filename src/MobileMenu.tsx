@@ -80,23 +80,6 @@ const MobileMenu: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/about"
-                onClick={closeMenu}
-                style={{
-                  display: 'block',
-                  color: 'white',
-                  textDecoration: 'none',
-                  padding: '15px 20px',
-                  fontSize: '18px',
-                  borderBottom: '1px solid rgba(255,255,255,0.2)',
-                  backgroundColor: isActive('/about') ? 'rgba(255,255,255,0.2)' : 'transparent'
-                }}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/approach"
                 onClick={closeMenu}
                 style={{
