@@ -21,13 +21,18 @@ const Home: React.FC = () => {
         background: 'transparent',
         backdropFilter: 'blur(3px)',
         position: 'relative',
-        zIndex: 1
+        zIndex: 1,
+        padding: '0.5rem 2rem 1rem 2rem',
+        margin: '0 auto',
+        maxWidth: '1200px'
       }}>
         <h2 style={{
           color: '#ffffff',
           textShadow: '2px 2px 8px rgba(0,0,0,0.4)',
           fontWeight: '300',
-          letterSpacing: '1px'
+          letterSpacing: '1px',
+          marginBottom: '0.5rem',
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)'
         }}>Therapy for Adults Seeking Clarity, Peace, and Lasting Change</h2>
         <Link to="/contact" className="cta-button">
           Start Your Journey
@@ -37,16 +42,19 @@ const Home: React.FC = () => {
           background: 'rgba(255, 255, 255, 0.92)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.3)',
-          boxShadow: '0 25px 70px rgba(0, 0, 0, 0.2)'
+          boxShadow: '0 25px 70px rgba(0, 0, 0, 0.2)',
+          marginTop: '0.8rem',
+          padding: '1.5rem',
+          borderRadius: '1rem'
         }}>
-          <h3>Who I Work With</h3>
-          <p>
-            I work with high-functioning adults in their 20s to 50s who are thoughtful, driven, and deeply committed to growth. 
-            Many carry a foundation of faith or spirituality yet feel weighed down by old patterns, relational wounds, or uncertainty about their next chapter.
+          <h3 style={{ marginBottom: '0.8rem', fontSize: '1.4rem' }}>Who I Work With</h3>
+          <p style={{ marginBottom: '1.2rem', fontSize: '1rem', lineHeight: '1.5' }}>
+            High-functioning adults in their 20s to 50s who are thoughtful, driven, and committed to growth. 
+            Many carry faith or spirituality yet feel weighed down by old patterns or uncertainty about their next chapter.
           </p>
           
-          <h3>My Approach</h3>
-          <p>
+          <h3 style={{ marginBottom: '0.8rem', fontSize: '1.4rem' }}>My Approach</h3>
+          <p style={{ marginBottom: '0.8rem', fontSize: '1rem', lineHeight: '1.5' }}>
             Warm. Collaborative. Practical. Together, we'll explore what holds you back, strengthen your sense of self, and move toward clarity, peace, and purpose.
           </p>
           
