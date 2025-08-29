@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
     <main 
       className="parallax-bg"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(52, 73, 94, 0.46) 0%, rgba(44, 62, 80, 0.44) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000')`,
+        backgroundImage: `linear-gradient(135deg, rgba(52, 73, 94, 0.46) 0%, rgba(44, 62, 80, 0.44) 100%), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2000')`,
         minHeight: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
