@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Home: React.FC = () => {
-  const overviewRef = useScrollAnimation('animate-fade-up', { once: true });
 
   return (
     <main 
