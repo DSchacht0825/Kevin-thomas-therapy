@@ -114,7 +114,7 @@ const MobileMenu: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/contact"
+                to="/faqs"
                 onClick={closeMenu}
                 style={{
                   display: 'block',
@@ -122,10 +122,10 @@ const MobileMenu: React.FC = () => {
                   textDecoration: 'none',
                   padding: '15px 20px',
                   fontSize: '18px',
-                  backgroundColor: isActive('/contact') ? 'rgba(255,255,255,0.2)' : 'transparent'
+                  backgroundColor: isActive('/faqs') ? 'rgba(255,255,255,0.2)' : 'transparent'
                 }}
               >
-                Contact
+                FAQs
               </Link>
             </li>
           </ul>

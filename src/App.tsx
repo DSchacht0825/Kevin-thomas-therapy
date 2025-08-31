@@ -6,7 +6,7 @@ import MobileMenu from './MobileMenu';
 import Home from './pages/Home';
 import Approach from './pages/Approach';
 import Expectations from './pages/Expectations';
-import Contact from './pages/Contact';
+import FAQs from './pages/FAQs';
 
 // Layout component that wraps all pages
 function Layout() {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "approach", element: <Approach /> },
       { path: "expectations", element: <Expectations /> },
-      { path: "contact", element: <Contact /> }
+      { path: "faqs", element: <FAQs /> }
     ]
   }
 ]);

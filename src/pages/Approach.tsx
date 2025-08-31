@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Approach: React.FC = () => {
   const principlesRef = useScrollAnimation('animate-fade-scale', { once: true });
   const philosophyRef = useScrollAnimation('animate-slide-right', { once: true });
+  
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <main 
@@ -20,7 +33,7 @@ const Approach: React.FC = () => {
       <div className="container">
       {/* Hero Section */}
       <section style={{
-        padding: '5rem 2rem',
+        padding: '5rem 2rem 3rem',
         maxWidth: '1200px',
         margin: '0 auto',
         textAlign: 'center'
@@ -33,122 +46,116 @@ const Approach: React.FC = () => {
           fontWeight: '400',
           textShadow: '2px 2px 10px rgba(0,0,0,0.3)',
           animation: 'fadeInUp 0.8s ease-out'
-        }}>A Collaborative Journey</h1>
+        }}>My Approach to Therapy</h1>
         
         <p style={{ 
           fontSize: '1.3rem', 
           color: '#e8f4f8',
           lineHeight: '1.8',
           maxWidth: '700px', 
-          margin: '0 auto 4rem auto',
+          margin: '0 auto 3rem auto',
           textShadow: '1px 1px 4px rgba(0,0,0,0.2)',
           fontWeight: '300',
           animation: 'fadeInUp 1s ease-out'
         }}>
-          Therapy is a partnership built on trust, understanding, and a shared commitment to your growth and healing.
+          I believe therapy is a partnership where we work together toward your growth and healing.
         </p>
       </section>
 
-      {/* Core Principles - Natural Flow */}
+      {/* Two Column Section with Image and Principles */}
       <section 
         ref={principlesRef}
         className="animate-on-scroll"
         style={{
-          maxWidth: '1000px',
-          margin: '4rem auto 8rem auto',
-          padding: '0 2rem',
-          textAlign: 'left'
+          maxWidth: '1200px',
+          margin: '2rem auto 4rem auto',
+          padding: '0 2rem'
         }}>
         <div style={{
-          lineHeight: '2',
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '350px 1fr',
+          gap: '3rem',
+          alignItems: 'center',
           animation: 'fadeInUp 1.2s ease-out'
         }}>
-          <p style={{
-            fontSize: '1.4rem',
-            color: '#e8f4f8',
-            marginBottom: '3rem',
-            fontWeight: '300',
-            textShadow: '1px 1px 4px rgba(0,0,0,0.2)',
-            textAlign: 'center',
-            fontStyle: 'italic'
+          {/* Left Column - Kevin's Photo */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center'
           }}>
-            Our therapeutic approach is built on four foundational principles that guide every session:
-          </p>
-          
-          <div style={{ marginBottom: '4rem' }}>
-            <p style={{
-              fontSize: '1.3rem',
-              color: '#e8f4f8',
-              lineHeight: '2.2',
-              fontWeight: '300',
-              textShadow: '1px 1px 4px rgba(0,0,0,0.2)'
+            <div style={{
+              width: '100%',
+              maxWidth: '320px',
+              height: '400px',
+              borderRadius: '50%',
+              overflow: 'hidden',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.35)',
+              border: '5px solid rgba(255,255,255,0.95)',
+              animation: 'fadeInUp 0.6s ease-out'
             }}>
-              Creating a <strong style={{ 
-                color: '#ffffff', 
-                fontFamily: 'Playfair Display, serif',
-                fontSize: '1.4rem',
-                fontWeight: '500'
-              }}>warm and safe</strong> space is fundamental—a judgment-free environment where you feel 
-              heard, understood, and accepted exactly as you are. This foundation of safety allows for genuine 
-              exploration and meaningful growth to unfold naturally.
-            </p>
+              <img 
+                src="/images/image-2.jpg" 
+                alt="Kevin Schacht"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
           </div>
           
-          <div style={{ marginBottom: '4rem' }}>
+          {/* Right Column - Content */}
+          <div style={{
+            textAlign: 'left'
+          }}>
             <p style={{
-              fontSize: '1.3rem',
+              fontSize: '1.2rem',
               color: '#e8f4f8',
-              lineHeight: '2.2',
+              lineHeight: '1.9',
               fontWeight: '300',
-              textShadow: '1px 1px 4px rgba(0,0,0,0.2)'
+              textShadow: '1px 1px 4px rgba(0,0,0,0.2)',
+              marginBottom: '1.8rem'
             }}>
-              The work is deeply <strong style={{ 
-                color: '#ffffff', 
-                fontFamily: 'Playfair Display, serif',
-                fontSize: '1.4rem',
-                fontWeight: '500'
-              }}>collaborative</strong>—we work together as partners in your healing journey, 
-              honoring your expertise on your own life while providing professional guidance and support. 
-              Your insights, experiences, and intuition are valued and integrated into our therapeutic process.
+              I offer a judgment-free environment to explore your concerns, troubles, dreams, and questions. 
+              We will be on this journey together: I particularly like working with anxiety, stress, and career challenges. 
+              I also enjoy processing through spiritual questions and angst.
             </p>
-          </div>
-          
-          <div style={{ marginBottom: '4rem' }}>
+            
             <p style={{
-              fontSize: '1.3rem',
+              fontSize: '1.2rem',
               color: '#e8f4f8',
-              lineHeight: '2.2',
+              lineHeight: '1.9',
               fontWeight: '300',
-              textShadow: '1px 1px 4px rgba(0,0,0,0.2)'
+              textShadow: '1px 1px 4px rgba(0,0,0,0.2)',
+              marginBottom: '1.8rem'
             }}>
-              Every session focuses on the <strong style={{ 
-                color: '#ffffff', 
-                fontFamily: 'Playfair Display, serif',
-                fontSize: '1.4rem',
-                fontWeight: '500'
-              }}>practical</strong>—actionable strategies and real-world tools 
-              you can use to create lasting change in your daily life. Therapy that stays in the office isn't 
-              truly helpful; our work together translates into meaningful progress in your relationships, 
-              work, and personal well-being.
+              Together, we will identify, clarify, and process emotions and ideas that are causing you discomfort. 
+              Just as importantly, we'll set goals together so you can effectively understand the progress you've made.
             </p>
-          </div>
-          
-          <div style={{ marginBottom: '2rem' }}>
+            
             <p style={{
-              fontSize: '1.3rem',
+              fontSize: '1.2rem',
               color: '#e8f4f8',
-              lineHeight: '2.2',
+              lineHeight: '1.9',
+              fontWeight: '300',
+              textShadow: '1px 1px 4px rgba(0,0,0,0.2)',
+              marginBottom: '1.8rem'
+            }}>
+              In our sessions you'll get the aid of an unbiased and professional perspective to gain new insight 
+              into your life, circumstances, and relationships. Our work will always utilize genuine compassion, 
+              transparent honesty, and authentic empathy.
+            </p>
+            
+            <p style={{
+              fontSize: '1.2rem',
+              color: '#e8f4f8',
+              lineHeight: '1.9',
               fontWeight: '300',
               textShadow: '1px 1px 4px rgba(0,0,0,0.2)'
             }}>
-              The approach is <strong style={{ 
-                color: '#ffffff', 
-                fontFamily: 'Playfair Display, serif',
-                fontSize: '1.4rem',
-                fontWeight: '500'
-              }}>holistic</strong>—addressing emotional, relational, and spiritual 
-              dimensions of healing and growth. True wellness encompasses all aspects of your being and experience, 
-              recognizing that lasting change happens when we tend to the whole person, not just isolated symptoms.
+              I look forward to hearing your story, discovering your strengths, and navigating our way through 
+              the path you find yourself on.
             </p>
           </div>
         </div>
@@ -160,14 +167,14 @@ const Approach: React.FC = () => {
         className="animate-on-scroll"
         style={{
           maxWidth: '1200px',
-          margin: '5rem auto',
+          margin: '3rem auto 5rem',
           padding: '0 2rem'
         }}>
         <div style={{
           background: 'rgba(255, 255, 255, 0.95)',
           backdropFilter: 'blur(20px)',
           borderRadius: '20px',
-          padding: '4rem 5rem',
+          padding: '3rem 4rem',
           boxShadow: '0 25px 60px rgba(0, 0, 0, 0.1)',
           border: '1px solid rgba(255, 255, 255, 0.3)',
           textAlign: 'center'
@@ -178,7 +185,7 @@ const Approach: React.FC = () => {
             color: '#2c3e50',
             marginBottom: '2.5rem',
             fontWeight: '400'
-          }}>Philosophy & Methods</h2>
+          }}>How I Work</h2>
           
           <p style={{
             fontSize: '1.25rem',
@@ -187,8 +194,8 @@ const Approach: React.FC = () => {
             lineHeight: '1.8',
             fontWeight: '300'
           }}>
-            True healing happens when we address the whole person—mind, heart, and spirit. 
-            This approach honors the complexity of human experience while providing practical tools for lasting change.
+            I believe true healing happens when we address the whole person—mind, heart, and spirit. 
+            My approach honors your unique experience while providing practical tools for lasting change.
           </p>
           
           <div style={{
@@ -202,9 +209,9 @@ const Approach: React.FC = () => {
               lineHeight: '1.7',
               marginBottom: '2rem'
             }}>
-              Drawing from <strong>Cognitive-Behavioral Therapy</strong>, <strong>mindfulness-based interventions</strong>, 
-              <strong>spiritual integration</strong>, and <strong>solution-focused approaches</strong>, each session is tailored 
-              to your unique needs, goals, and values.
+              I draw from <strong>CBT</strong>, <strong>mindfulness practices</strong>, 
+              <strong>spiritual integration</strong>, and <strong>solution-focused therapy</strong> to tailor 
+              each session to your specific needs and goals.
             </p>
             
             <p style={{
@@ -214,12 +221,12 @@ const Approach: React.FC = () => {
               fontStyle: 'italic',
               marginBottom: '2.5rem'
             }}>
-              Every person has inherent worth and the capacity for growth, regardless of their current struggles. 
-              Together, we'll create a safe space to explore your deepest concerns without fear of judgment.
+              I believe you have inherent worth and the capacity for growth, no matter what you're facing. 
+              I'm here to provide a safe space where you can explore your concerns without fear of judgment.
             </p>
 
             <Link 
-              to="/contact"
+              to="/faqs"
               style={{
                 background: 'linear-gradient(145deg, #6b8e9e 0%, #8ba399 100%)',
                 color: '#ffffff',

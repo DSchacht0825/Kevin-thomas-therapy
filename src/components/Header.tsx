@@ -53,8 +53,8 @@ const Header: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className={isActive('/contact') ? 'active' : ''}>
-                  Contact
+                <Link to="/faqs" className={isActive('/faqs') ? 'active' : ''}>
+                  FAQs
                 </Link>
               </li>
             </ul>
