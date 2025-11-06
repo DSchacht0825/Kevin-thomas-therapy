@@ -45,147 +45,172 @@ const Footer: React.FC = () => {
       marginTop: '0'
     }}>
       <div style={{
-        maxWidth: '800px',
+        maxWidth: '1400px',
         margin: '0 auto'
       }}>
-        {/* Contact Form Section */}
+        {/* Main Content - Two Column Layout */}
         <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))',
+          gap: '3rem',
           background: 'rgba(255, 255, 255, 0.08)',
           borderRadius: '20px',
           padding: '3rem',
           backdropFilter: 'blur(10px)',
           border: '1px solid rgba(255, 255, 255, 0.1)'
         }}>
-          <h2 style={{
-            fontFamily: 'Playfair Display, serif',
-            fontSize: '2.5rem',
-            color: '#ffffff',
-            textAlign: 'center',
-            marginBottom: '1rem',
-            fontWeight: '400'
-          }}>Begin Your Journey</h2>
-          
-          <p style={{
-            color: '#b8c5d6',
-            textAlign: 'center',
-            marginBottom: '2.5rem',
-            fontSize: '1.1rem',
-            fontWeight: '300'
-          }}>
-            Take the first step toward healing and growth
-          </p>
-
-          <form onSubmit={handleSubmit} style={{
+          {/* Left Column - Location & Map */}
+          <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '1.5rem'
+            gap: '2rem'
           }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '1.5rem'
-            }}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                style={{
-                  padding: '1rem',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  color: '#ffffff',
-                  fontSize: '1rem',
-                  transition: 'all 0.3s ease',
-                  outline: 'none'
-                }}
-                onFocus={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                }}
-                onBlur={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                }}
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                style={{
-                  padding: '1rem',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  color: '#ffffff',
-                  fontSize: '1rem',
-                  transition: 'all 0.3s ease',
-                  outline: 'none'
-                }}
-                onFocus={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                }}
-                onBlur={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                }}
-              />
-            </div>
-
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone (Optional)"
-              value={formData.phone}
-              onChange={handleChange}
-              style={{
-                padding: '1rem',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                background: 'rgba(255, 255, 255, 0.05)',
-                color: '#ffffff',
-                fontSize: '1rem',
-                transition: 'all 0.3s ease',
-                outline: 'none'
-              }}
-              onFocus={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.08)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-              }}
-              onBlur={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-              }}
-            />
-
             <div>
-              <label style={{
-                color: '#b8c5d6',
-                fontSize: '1rem',
-                marginBottom: '0.5rem',
-                display: 'block',
-                fontWeight: '300'
-              }}>
-                Briefly describe what you would like to explore in therapy and hope to get out of our time together:
-              </label>
-              <textarea
-                name="message"
-                placeholder="Share what brings you here today..."
-                value={formData.message}
-                onChange={handleChange}
-                required
-                maxLength={960}
-                rows={5}
+              <h3 style={{
+                fontFamily: 'Playfair Display, serif',
+                fontSize: '1.8rem',
+                color: '#ffffff',
+                marginBottom: '1rem',
+                fontWeight: '400'
+              }}>Office Location</h3>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=2204+Irving+Ave+San+Diego+CA+92113"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  width: '100%',
+                  color: '#b8c5d6',
+                  fontSize: '1.1rem',
+                  textDecoration: 'none',
+                  transition: 'color 0.3s ease',
+                  display: 'block',
+                  marginBottom: '1.5rem'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#b8c5d6';
+                }}
+              >
+                2204 Irving Ave<br />
+                San Diego, CA 92113
+              </a>
+            </div>
+
+            <div style={{
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+              flexGrow: 1
+            }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.8!2d-117.1308!3d32.6989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9536c0f0f0f0f%3A0x0!2s2204%20Irving%20Ave%2C%20San%20Diego%2C%20CA%2092113!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Office Location"
+              />
+            </div>
+          </div>
+
+          {/* Right Column - Contact Form */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            <h2 style={{
+              fontFamily: 'Playfair Display, serif',
+              fontSize: '1.8rem',
+              color: '#ffffff',
+              marginBottom: '1rem',
+              fontWeight: '400'
+            }}>Get in Touch</h2>
+
+            <p style={{
+              color: '#b8c5d6',
+              marginBottom: '1.5rem',
+              fontSize: '0.95rem',
+              fontWeight: '300'
+            }}>
+              Take the first step toward healing and growth
+            </p>
+
+            <form onSubmit={handleSubmit} style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem'
+            }}>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr',
+                gap: '1rem'
+              }}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    padding: '0.75rem',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    color: '#ffffff',
+                    fontSize: '0.95rem',
+                    transition: 'all 0.3s ease',
+                    outline: 'none'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.background = 'rgba(255, 255, 255, 0.08)';
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  }}
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    padding: '0.75rem',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    color: '#ffffff',
+                    fontSize: '0.95rem',
+                    transition: 'all 0.3s ease',
+                    outline: 'none'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.background = 'rgba(255, 255, 255, 0.08)';
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  }}
+                />
+              </div>
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone (Optional)"
+                value={formData.phone}
+                onChange={handleChange}
+                style={{
                   padding: '1rem',
                   borderRadius: '10px',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -193,10 +218,7 @@ const Footer: React.FC = () => {
                   color: '#ffffff',
                   fontSize: '1rem',
                   transition: 'all 0.3s ease',
-                  outline: 'none',
-                  resize: 'vertical',
-                  fontFamily: 'inherit',
-                  lineHeight: '1.5'
+                  outline: 'none'
                 }}
                 onFocus={(e) => {
                   e.target.style.background = 'rgba(255, 255, 255, 0.08)';
@@ -207,42 +229,169 @@ const Footer: React.FC = () => {
                   e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                 }}
               />
-            </div>
 
-            <button
-              type="submit"
-              style={{
-                background: 'linear-gradient(145deg, #6b8e9e 0%, #8ba399 100%)',
-                color: '#ffffff',
-                padding: '1.2rem 2.5rem',
-                borderRadius: '50px',
-                border: 'none',
-                fontSize: '1.1rem',
-                fontWeight: '500',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                alignSelf: 'center',
-                marginTop: '1rem'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 15px 35px rgba(107, 142, 158, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              <div>
+                <label style={{
+                  color: '#b8c5d6',
+                  fontSize: '0.9rem',
+                  marginBottom: '0.5rem',
+                  display: 'block',
+                  fontWeight: '300'
+                }}>
+                  Briefly describe what you would like to explore in therapy:
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Share what brings you here today..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  maxLength={960}
+                  rows={4}
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    color: '#ffffff',
+                    fontSize: '0.95rem',
+                    transition: 'all 0.3s ease',
+                    outline: 'none',
+                    resize: 'vertical',
+                    fontFamily: 'inherit',
+                    lineHeight: '1.5'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.background = 'rgba(255, 255, 255, 0.08)';
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                style={{
+                  background: 'linear-gradient(145deg, #6b8e9e 0%, #8ba399 100%)',
+                  color: '#ffffff',
+                  padding: '0.9rem 2rem',
+                  borderRadius: '50px',
+                  border: 'none',
+                  fontSize: '0.95rem',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  alignSelf: 'flex-start',
+                  marginTop: '0.5rem'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 15px 35px rgba(107, 142, 158, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Partnership Logos */}
+        <div style={{
+          marginTop: '3rem',
+          textAlign: 'center',
+          paddingBottom: '2rem'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '3rem',
+            flexWrap: 'wrap'
+          }}>
+            <a
+              href="https://care.headway.co/providers/kevin-thomas-2"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Send Message
-            </button>
-          </form>
+              <img
+                src="/images/headway.jpg"
+                alt="Headway"
+                style={{
+                  height: '90px',
+                  width: 'auto',
+                  opacity: 0.7,
+                  transition: 'opacity 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '0.7';
+                }}
+              />
+            </a>
+            <a
+              href="https://www.psychologytoday.com/us/therapists/kevin-a-thomas-san-diego-ca/311432"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/images/pt.jpeg"
+                alt="Psychology Today"
+                style={{
+                  height: '90px',
+                  width: 'auto',
+                  opacity: 0.7,
+                  transition: 'opacity 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '0.7';
+                }}
+              />
+            </a>
+            <a
+              href="https://www.camft.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/images/camft.jpg"
+                alt="CAMFT"
+                style={{
+                  height: '90px',
+                  width: 'auto',
+                  opacity: 0.7,
+                  transition: 'opacity 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '0.7';
+                }}
+              />
+            </a>
+          </div>
         </div>
 
         {/* Footer Info */}
         <div style={{
-          marginTop: '3rem',
           textAlign: 'center',
           paddingTop: '2rem',
           borderTop: '1px solid rgba(255, 255, 255, 0.1)'

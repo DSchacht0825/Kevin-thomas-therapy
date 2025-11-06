@@ -1,21 +1,41 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 const MobileMenu: React.FC = () => {
-  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  const isActive = (path: string) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'approach', 'expectations', 'faqs'];
+      const scrollPosition = window.scrollY + 150;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const closeMenu = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsMenuOpen(false);
   };
 
@@ -62,9 +82,12 @@ const MobileMenu: React.FC = () => {
         >
           <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
             <li>
-              <Link
-                to="/"
-                onClick={closeMenu}
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('home');
+                }}
                 style={{
                   display: 'block',
                   color: 'white',
@@ -72,16 +95,19 @@ const MobileMenu: React.FC = () => {
                   padding: '15px 20px',
                   fontSize: '18px',
                   borderBottom: '1px solid rgba(255,255,255,0.2)',
-                  backgroundColor: isActive('/') ? 'rgba(255,255,255,0.2)' : 'transparent'
+                  backgroundColor: activeSection === 'home' ? 'rgba(255,255,255,0.2)' : 'transparent'
                 }}
               >
                 Home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/approach"
-                onClick={closeMenu}
+              <a
+                href="#approach"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('approach');
+                }}
                 style={{
                   display: 'block',
                   color: 'white',
@@ -89,16 +115,19 @@ const MobileMenu: React.FC = () => {
                   padding: '15px 20px',
                   fontSize: '18px',
                   borderBottom: '1px solid rgba(255,255,255,0.2)',
-                  backgroundColor: isActive('/approach') ? 'rgba(255,255,255,0.2)' : 'transparent'
+                  backgroundColor: activeSection === 'approach' ? 'rgba(255,255,255,0.2)' : 'transparent'
                 }}
               >
                 My Approach
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/expectations"
-                onClick={closeMenu}
+              <a
+                href="#expectations"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('expectations');
+                }}
                 style={{
                   display: 'block',
                   color: 'white',
@@ -106,27 +135,30 @@ const MobileMenu: React.FC = () => {
                   padding: '15px 20px',
                   fontSize: '18px',
                   borderBottom: '1px solid rgba(255,255,255,0.2)',
-                  backgroundColor: isActive('/expectations') ? 'rgba(255,255,255,0.2)' : 'transparent'
+                  backgroundColor: activeSection === 'expectations' ? 'rgba(255,255,255,0.2)' : 'transparent'
                 }}
               >
                 What to Expect
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/faqs"
-                onClick={closeMenu}
+              <a
+                href="#faqs"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('faqs');
+                }}
                 style={{
                   display: 'block',
                   color: 'white',
                   textDecoration: 'none',
                   padding: '15px 20px',
                   fontSize: '18px',
-                  backgroundColor: isActive('/faqs') ? 'rgba(255,255,255,0.2)' : 'transparent'
+                  backgroundColor: activeSection === 'faqs' ? 'rgba(255,255,255,0.2)' : 'transparent'
                 }}
               >
                 FAQs
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
