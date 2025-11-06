@@ -7,6 +7,8 @@ const Footer: React.FC = () => {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -15,27 +17,23 @@ const Footer: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('https://formspree.io/f/mrbakglb', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      if (response.ok) {
-        alert('Thank you! Your message has been sent successfully.');
-        setFormData({ name: '', email: '', phone: '', message: '' });
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      alert('Something went wrong. Please try again.');
+  const handleSubmit = (e: React.FormEvent) => {
+    // Prevent multiple submissions
+    if (isSubmitting || isSubmitted) {
+      e.preventDefault();
+      return;
     }
+
+    setIsSubmitting(true);
+    setIsSubmitted(true);
+
+    // Let Netlify handle the form submission natively
+    // After 3 seconds, reset the form
+    setTimeout(() => {
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setIsSubmitting(false);
+      alert('Thank you! Your message has been sent successfully.');
+    }, 3000);
   };
 
   return (
@@ -139,11 +137,18 @@ const Footer: React.FC = () => {
               Take the first step toward healing and growth
             </p>
 
-            <form onSubmit={handleSubmit} style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem'
-            }}>
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem'
+              }}
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr',
@@ -156,6 +161,7 @@ const Footer: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting || isSubmitted}
                   style={{
                     padding: '0.75rem',
                     borderRadius: '8px',
@@ -183,6 +189,7 @@ const Footer: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting || isSubmitted}
                   style={{
                     padding: '0.75rem',
                     borderRadius: '8px',
@@ -210,6 +217,7 @@ const Footer: React.FC = () => {
                 placeholder="Your Phone (Optional)"
                 value={formData.phone}
                 onChange={handleChange}
+                disabled={isSubmitting || isSubmitted}
                 style={{
                   padding: '1rem',
                   borderRadius: '10px',
@@ -248,6 +256,7 @@ const Footer: React.FC = () => {
                   required
                   maxLength={960}
                   rows={4}
+                  disabled={isSubmitting || isSubmitted}
                   style={{
                     width: '100%',
                     padding: '0.75rem',
@@ -275,31 +284,39 @@ const Footer: React.FC = () => {
 
               <button
                 type="submit"
+                disabled={isSubmitting || isSubmitted}
                 style={{
-                  background: 'linear-gradient(145deg, #6b8e9e 0%, #8ba399 100%)',
+                  background: isSubmitting || isSubmitted
+                    ? 'linear-gradient(145deg, #9ca3a8 0%, #b0b5b9 100%)'
+                    : 'linear-gradient(145deg, #6b8e9e 0%, #8ba399 100%)',
                   color: '#ffffff',
                   padding: '0.9rem 2rem',
                   borderRadius: '50px',
                   border: 'none',
                   fontSize: '0.95rem',
                   fontWeight: '500',
-                  cursor: 'pointer',
+                  cursor: isSubmitting || isSubmitted ? 'not-allowed' : 'pointer',
                   transition: 'all 0.3s ease',
                   textTransform: 'uppercase',
                   letterSpacing: '1px',
                   alignSelf: 'flex-start',
-                  marginTop: '0.5rem'
+                  marginTop: '0.5rem',
+                  opacity: isSubmitting || isSubmitted ? 0.6 : 1
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 15px 35px rgba(107, 142, 158, 0.4)';
+                  if (!isSubmitting && !isSubmitted) {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 15px 35px rgba(107, 142, 158, 0.4)';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
+                  if (!isSubmitting && !isSubmitted) {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }
                 }}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : isSubmitted ? 'Sent!' : 'Send Message'}
               </button>
             </form>
           </div>
